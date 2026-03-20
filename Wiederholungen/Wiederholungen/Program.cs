@@ -24,5 +24,15 @@ namespace Wiederholungen
     {
         public string Name {get;set;}
         public Gerätetyp Typ {get;set;}
+
+        public abstract  string GetStatus();
+        public virtual void ZeigeInfo()
+        {
+            Console.WriteLine($"Gerät: {Name} und {Typ}");
+        }
+        public abstract void Einschalten();
+        public abstract void Ausschalten();
     }
+
+    
 }
