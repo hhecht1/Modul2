@@ -98,6 +98,8 @@ namespace Smarthome3
     {
         public bool SecurityIsOn {get; private set;}
         public int CameraCount {get; set;}
+        public bool Records {get; private set;}
+        public int AktiveAlarms {get; set;}
 
         public override void TurnOn()
         {
@@ -140,5 +142,22 @@ namespace Smarthome3
             base.ShowInfo();
         }
          public override string GetStatus() => EnergyIsOn ? $"Energiegewinnung ist an und bei ({EnergyUsage} kWh)" : "Energiegewinnung ist aus";
+    }
+
+    public class Programm
+    {
+        public static void Main (string[] args)
+        {
+            List<SmartGerät> HomeDevices = new List<SmartGerät>();
+            new SmartLamp{Name = "Küche", Typ = Gerätetyp.Licht, Helligkeit = 50}.ShowInfo();
+            new SmartLamp{Name = "Schlafzimmer", Typ = Gerätetyp.Licht, Helligkeit = 30}.ShowInfo();
+            new SmartLamp{Name = "Badezimmer", Typ = Gerätetyp.Licht, Helligkeit = 100}.ShowInfo();
+            
+            new SmartLamp{Name = "Wohnzimmer", Typ = Gerätetyp.Licht, Helligkeit = 75}.ShowInfo();
+            new SmartThermostat{Name = " Heizung ", Typ = Gerätetyp.Heizung, Temperature = 22}.ShowInfo();
+            new SmartSecurity{Name = "Sicherheitssystem", Typ = Gerätetyp.Sicherheit, CameraCount = 4}.ShowInfo();
+            new Smartenergy{Name = "Solar Panel", Typ = Gerätetyp.Energie, EnergyUsage = 5}.ShowInfo();
+        }
+
     }
 }
