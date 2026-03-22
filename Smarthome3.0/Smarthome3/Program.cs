@@ -17,6 +17,7 @@ namespace Smarthome3
             Einheit = einheit;
 
         }
+        public override string ToString() => $"{Wert} {Einheit}";
         
     }
 
@@ -62,7 +63,7 @@ namespace Smarthome3
             base.ShowInfo();
         }
 
-        public override string GetStatus() => iSoN ? $"An ({Helligkeit})" : "Aus";
+        public override string GetStatus() => iSoN ? $"Lampe ist an und bei ({Helligkeit}%) Helligkeit" : " Lampe ist Aus";
 
         public void Dimmen(int wert )=> Helligkeit = wert;
 
@@ -90,7 +91,7 @@ namespace Smarthome3
             base.ShowInfo();
         }
 
-        public override string GetStatus() => heatingIsOn ? $"An ({Temperature}°C)" : "Aus";
+        public override string GetStatus() => heatingIsOn ? $"Heizung ist an und bei ({Temperature}°C)" : "Heizung ist aus";
     }
 
     public class SmartSecurity : SmartGerät
@@ -114,7 +115,7 @@ namespace Smarthome3
         {
             base.ShowInfo();
         }
-        public override string GetStatus() => SecurityIsOn ? $"Im Moment laufen  ({CameraCount} Kameras)" : "Aus";
+        public override string GetStatus() => SecurityIsOn ? $"Im Moment laufen  ({CameraCount} Kameras)" : "Sicherheit ist aus";
 
        
     }
@@ -138,6 +139,6 @@ namespace Smarthome3
         {
             base.ShowInfo();
         }
-         public override string GetStatus() => EnergyIsOn ? $"Energiegewinnung ({EnergyUsage} kWh)" : "Aus";
+         public override string GetStatus() => EnergyIsOn ? $"Energiegewinnung ist an und bei ({EnergyUsage} kWh)" : "Energiegewinnung ist aus";
     }
 }
