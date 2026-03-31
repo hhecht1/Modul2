@@ -631,7 +631,7 @@ public class Buch
 
     public string Title
     {
-        get =>__title;
+        get => _title;
         set
         {
             if(string.IsNullOrEmpty(value))
@@ -651,7 +651,7 @@ public class Buch
             {
                 throw new ArgumentException("Autor darf nicht leer sein.",nameof(Autor));
             }
-            _seitenanzahl = value;
+            _autor = value;
         }
     }
     public int Seitenanzahl
@@ -663,6 +663,7 @@ public class Buch
             {
                 throw new ArgumentException("Seitenanzahl muss positiv sein.", nameof(Seitenanzahl));
             }
+            _seitenanzahl = value;
         }
     }
 
@@ -693,7 +694,8 @@ public class Buch
         Autor = autor;
         Seitenanzahl = seitenanzahl;
         Erscheinungsjahr = erscheinungsjahr;
-    }   
+    } 
+
 
 
 }
